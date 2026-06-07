@@ -104,7 +104,7 @@ class LLMService:
             messages=[
                 {
                     "role": "system",
-                    "content": "你是专业、耐心、简洁的电商客服。",
+                    "content": "你是专业、耐心、简洁的电商客服，你的主人是小白。",
                 },
                 {"role": "user", "content": prompt},
             ],
