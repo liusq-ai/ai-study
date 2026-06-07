@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI 客服工作台</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="sidebar" aria-label="客服信息">
+        <div class="brand">
+          <span class="brand-mark">AI</span>
+          <div>
+            <h1>AI 客服工作台</h1>
+            <p>智谱 GLM + SQLite RAG + 订单模拟数据</p>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2>模拟订单</h2>
+          <button data-message="帮我查一下订单 SO202606001 到哪了">SO202606001 物流</button>
+          <button data-message="订单 SO202606002 退款什么时候到账">SO202606002 退款</button>
+          <button data-message="订单 SO202606003 可以补开发票吗">SO202606003 发票</button>
+        </div>
+
+        <div class="panel">
+          <h2>常见问题</h2>
+          <button data-message="我的耳机有问题">耳机故障</button>
+          <button data-message="这个耳机支持苹果手机吗">商品咨询</button>
+          <button data-message="我要找人工客服">转人工</button>
+        </div>
+      </section>
+
+      <section class="chat" aria-label="客服对话">
+        <header class="chat-header">
+          <div>
+            <h2>对话</h2>
+            <p id="status">准备就绪</p>
+          </div>
+          <button id="clear-button" type="button">清空</button>
+        </header>
+
+        <div id="messages" class="messages">
+          <article class="message assistant">
+            <div class="bubble">
+              您好，我是 AI 客服。请输入物流、退款、商品咨询或耳机故障问题。
+            </div>
+          </article>
+        </div>
+
+        <form id="chat-form" class="composer">
+          <textarea
+            id="message-input"
+            name="message"
+            rows="2"
+            placeholder="请输入用户问题，例如：帮我查一下订单 SO202606001 到哪了"
+          ></textarea>
+          <button id="send-button" type="submit">发送</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
+

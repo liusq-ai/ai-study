@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: ai-customer-service
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python3 web_app.py
+    healthCheckPath: /health
+    envVars:
+      - key: ZHIPU_API_KEY
+        sync: false
+      - key: ZHIPU_MODEL
+        value: glm-4-flash
+      - key: ZHIPU_MIN_INTERVAL_SECONDS
+        value: "1.5"
+      - key: ZHIPU_MAX_RETRIES
+        value: "2"
