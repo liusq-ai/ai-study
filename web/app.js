@@ -79,7 +79,7 @@ document.querySelectorAll("[data-message]").forEach((button) => {
 
 clearButton.addEventListener("click", () => {
   messages.innerHTML = "";
-  addMessage("assistant", "您好，我是 AI 客服。请输入物流、退款、商品咨询或耳机故障问题。");
+  addMessage("assistant", "您好，我是 AI 客服小白。请输入物流、退款、商品咨询或故障问题。");
 });
 
 input.addEventListener("keydown", (event) => {
