@@ -1,8 +1,12 @@
 import json
+from pathlib import Path
 from types import SimpleNamespace
 
 from services.llm_service import LLMService
 from services.knowledge_service import KnowledgeService
+
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 class FakeCompletions:
@@ -85,8 +89,18 @@ def test_greeting() -> None:
     assert result["type"] == "greeting"
 
 
-def test_rag() -> None:
-    service = KnowledgeService()
+def create_knowledge(tmp_path: Path) -> KnowledgeService:
+    return KnowledgeService(
+        database_path=tmp_path / "customer-service.db",
+        schema_path=BASE_DIR / "data/schema.sql",
+        seed_path=BASE_DIR / "data/seed.sql",
+        knowledge_path=BASE_DIR / "data/knowledge.json",
+        chroma_path=tmp_path / "chroma",
+    )
+
+
+def test_rag(tmp_path: Path) -> None:
+    service = create_knowledge(tmp_path)
 
     result = service.load_knowledge("我的耳机左边没声音了", "troubleshooting")
 
@@ -94,10 +108,28 @@ def test_rag() -> None:
     assert "耳机" in result
 
 
-def test_order() -> None:
-    service = KnowledgeService()
+def test_order(tmp_path: Path) -> None:
+    service = create_knowledge(tmp_path)
 
     result = service.load_knowledge("帮我查一下订单 SO202606001", "logistics")
 
     assert "订单号 SO202606001" in result
+    assert "AirSound Pro" in result
+
+
+def test_product_rag(tmp_path: Path) -> None:
+    service = create_knowledge(tmp_path)
+
+    result = service.load_knowledge("AirSound Pro 续航多久", "product_info")
+
+    assert "AirSound Pro 续航" in result
+    assert "32 小时" in result
+
+
+def test_product_recommend(tmp_path: Path) -> None:
+    service = create_knowledge(tmp_path)
+
+    result = service.load_knowledge("哪个型号适合打游戏", "product_info")
+
+    assert "型号选择建议" in result
     assert "AirSound Pro" in result

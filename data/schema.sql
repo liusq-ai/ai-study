@@ -1,11 +1,3 @@
-CREATE TABLE IF NOT EXISTS knowledge_chunks (
-    id INTEGER PRIMARY KEY,
-    intent_type TEXT NOT NULL,
-    title TEXT NOT NULL,
-    content TEXT NOT NULL,
-    keywords TEXT NOT NULL
-);
-
 CREATE TABLE IF NOT EXISTS orders (
     order_id TEXT PRIMARY KEY,
     customer_name TEXT NOT NULL,
@@ -30,4 +22,3 @@ CREATE TABLE IF NOT EXISTS order_items (
     warranty_status TEXT NOT NULL,
     FOREIGN KEY (order_id) REFERENCES orders(order_id)
 );
-

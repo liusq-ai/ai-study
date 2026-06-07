@@ -2,14 +2,15 @@
 
 ## 项目目标
 
-构建一个可交互 AI 客服学习项目，用于学习 Prompt Engineering、客服意图识别、SQLite RAG 知识检索、订单模拟数据、智谱 GLM 模型回复、Web 界面和基础工程化协作。
+构建一个可交互 AI 客服学习项目，用于学习 Prompt Engineering、客服意图识别、Chroma RAG 知识检索、订单模拟数据、智谱 GLM 模型回复、Web 界面和基础工程化协作。
 
 ## 当前能力
 
 - 支持 CLI 连续交互。
 - 支持 Web 客服界面和 `/api/chat` 接口。
 - 支持客服意图识别。
-- 支持 SQLite RAG 检索知识片段。
+- 支持 Chroma RAG 检索知识片段。
+- 支持本地 Hash Embedding，不下载模型、不额外调用向量 API。
 - 支持订单表和订单明细表的模拟数据查询。
 - 支持智谱官方 Python SDK 识别意图并生成客服回复。
 - 支持 `.env` 和系统环境变量读取模型配置。

@@ -7,7 +7,7 @@ main.py
   -> CustomerService.answer_message
   -> IntentService.classify_intent
   -> KnowledgeService.load_knowledge
-     -> knowledge_chunks RAG 检索
+     -> Chroma customer_knowledge RAG 检索
      -> orders/order_items 订单模拟数据
   -> ReplyService.generate_reply
   -> LLMService.generate_reply
@@ -27,7 +27,7 @@ web_app.py
 - `web/`：前端客服工作台页面、样式和交互脚本。
 - `services/`：业务编排、意图识别、知识库读取、模型调用。
 - `prompts/`：意图识别和客服回复 Prompt。
-- `data/`：SQLite 表结构和种子数据。
+- `data/`：Chroma 知识资产、SQLite 表结构和订单种子数据。
 - `render.yaml`：Render 原生 Python Web Service 部署配置。
 - `runtime.txt`：Render Python 运行版本。
 - `tests/`：本地测试。
@@ -38,12 +38,14 @@ web_app.py
 
 - `CustomerService` 只做编排。
 - `IntentService` 只负责加载意图 Prompt 并调用 LLM。
-- `KnowledgeService` 只负责初始化 SQLite、检索 RAG 知识片段、查询订单模拟数据。
+- `KnowledgeService` 只负责初始化 Chroma 知识库、检索 RAG 知识片段、查询 SQLite 订单模拟数据。
 - `ReplyService` 只负责加载回复 Prompt 并调用 LLM。
 - `LLMService` 只负责环境配置、智谱 SDK、限流重试和模型调用，不保留本地模拟意图或写死回复。
 
-## 数据表
+## 数据和向量库
 
-- `knowledge_chunks`：RAG 知识片段，包含意图类型、标题、内容和关键词。
+- `data/knowledge.json`：客服知识源数据，包含意图类型、标题、内容和关键词。
+- `data/chroma/`：Chroma 运行时向量库目录，不提交仓库。
+- `customer_knowledge`：Chroma collection，保存客服知识片段和 Hash Embedding。
 - `orders`：模拟订单主表，包含订单状态、物流、退款和发票状态。
 - `order_items`：模拟订单明细表，包含商品、SKU、数量和保修状态。

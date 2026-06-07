@@ -19,8 +19,9 @@
 3. 如果用户情绪强烈、投诉、威胁差评，type 必须是 complaint。
 4. 如果问题涉及订单、物流、退款进度，need_order_info 必须是 true。
 5. 如果用户说“耳机有问题”“商品有问题”“用不了”“不正常”“异常”“坏了”等商品使用异常，type 必须是 troubleshooting。
-6. 如果用户只是打招呼，例如“你好”“您好”“hi”，type 使用 greeting。
-7. 如果无法判断，type 使用 other。
+6. 如果用户询问商品参数、型号区别、兼容设备、续航、降噪、通话、低延迟、保修、推荐哪款，type 必须是 product_info。
+7. 如果用户只是打招呼，例如“你好”“您好”“hi”，type 使用 greeting。
+8. 如果无法判断，type 使用 other。
 
 示例：
 用户问题：我的耳机有问题
@@ -37,6 +38,22 @@
   "type": "greeting",
   "need_order_info": false,
   "reason": "用户只是打招呼，还没有提出具体问题"
+}
+
+用户问题：AirSound Pro 续航多久？
+输出：
+{
+  "type": "product_info",
+  "need_order_info": false,
+  "reason": "用户咨询商品续航参数，属于商品咨询"
+}
+
+用户问题：哪个型号适合打游戏？
+输出：
+{
+  "type": "product_info",
+  "need_order_info": false,
+  "reason": "用户咨询型号推荐和使用场景，属于商品咨询"
 }
 
 输出格式：

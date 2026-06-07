@@ -7,7 +7,8 @@
 ```text
 用户问题 / Web 页面请求
   -> 意图识别 Prompt
-  -> SQLite RAG 检索知识和订单模拟数据
+  -> Chroma RAG 检索客服知识
+  -> SQLite 查询订单模拟数据
   -> 客服回复 Prompt
   -> 返回客服话术
 ```
@@ -24,7 +25,8 @@
 │   └── app.js
 ├── data/
 │   ├── schema.sql
-│   └── seed.sql
+│   ├── seed.sql
+│   └── knowledge.json
 ├── prompts/
 │   ├── customer-intent.md
 │   └── customer-reply.md
@@ -145,7 +147,37 @@ services/llm_service.py
 
 - `classify_intent`：调用智谱 GLM 做意图识别，要求返回 JSON。
 - `generate_reply`：调用智谱 GLM 根据用户问题、意图和知识库生成客服回复。
-- `KnowledgeService`：初始化 SQLite，做轻量 RAG 检索，并拼接模拟订单数据。
+- `KnowledgeService`：初始化 Chroma 知识库、检索 RAG 片段，并从 SQLite 拼接模拟订单数据。
+
+## Chroma RAG 知识库
+
+本项目使用 Chroma 模拟产品和客服知识库：
+
+```text
+data/knowledge.json
+  -> 本地 Hash Embedding
+  -> data/chroma/
+  -> Chroma collection: customer_knowledge
+```
+
+Hash Embedding 是本地 Python 计算，不下载模型、不调用额外 API，适合 Render 免费部署和学习 RAG 流程。
+
+订单数据仍然使用 SQLite：
+
+```text
+data/schema.sql
+data/seed.sql
+data/customer-service.db
+```
+
+可以测试这些产品咨询：
+
+```bash
+python3 main.py "这款耳机支持苹果手机吗"
+python3 main.py "AirSound Pro 续航多久"
+python3 main.py "哪个型号适合打游戏"
+python3 main.py "耳机保修多久"
+```
 
 ## 服务器发布
 
@@ -213,4 +245,5 @@ from zai import ZhipuAiClient
 1. 意图识别使用 JSON 输出，方便程序判断下一步。
 2. 客服回复使用自然语言输出，直接给用户看。
 3. Prompt 和代码分离，方便后续调整和版本管理。
-4. 知识库使用 SQLite RAG，不再使用写死 Markdown 知识库。
+4. 知识库使用 Chroma RAG，不再使用写死 Markdown 知识库。
+5. 订单模拟数据继续使用 SQLite，方便区分知识库和业务数据。

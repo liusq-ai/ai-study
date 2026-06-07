@@ -12,3 +12,9 @@
 - 知识库从 Markdown 文件迁移到 SQLite RAG；订单能力使用 SQLite 表和模拟数据，不接生产订单系统。
 - Web 界面采用 Python 标准库 `http.server`，避免为学习项目引入额外 Web 框架依赖。
 - 服务器发布优先使用 Render 原生 Python Web Service；Dockerfile 暂时保留，但不作为默认部署入口。
+
+## 2026-06-07
+
+- RAG 知识库从 SQLite 关键词检索升级为 Chroma 向量检索。
+- Embedding 采用本地 Hash Embedding，不下载模型、不调用额外 API，降低 Render 免费部署压力。
+- SQLite 保留为订单模拟数据库，只保存 `orders` 和 `order_items`。

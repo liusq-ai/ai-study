@@ -40,7 +40,7 @@ project-owner -> customer-domain -> system-engineer -> quality-operator
 - Markdown 文件使用小写 kebab-case，例如 `project-brief.md`。
 - `README.md` 和 `AGENTS.md` 作为社区约定保留大写。
 - Agent 文件名必须见名知意，不使用过短缩写，不使用 `*-agent.md` 重复后缀。
-- RAG 数据文件使用小写 kebab-case，SQLite 运行库文件不得提交。
+- RAG 数据文件使用小写 kebab-case，Chroma 和 SQLite 运行库文件不得提交。
 
 ## 资产沉淀
 
@@ -56,7 +56,7 @@ project-owner -> customer-domain -> system-engineer -> quality-operator
 资产更新规则：
 
 - 改目标或边界：更新 `project-brief.md` 和 `decision-log.md`。
-- 改意图、RAG 表结构、种子数据、Prompt：更新 `prompt-assets.md`。
+- 改意图、Chroma 知识资产、订单种子数据、Prompt：更新 `prompt-assets.md`。
 - 改代码结构、SDK、环境变量、数据库初始化：更新 `architecture-map.md` 和 `migration-guide.md`。
 - 改依赖、运行方式、测试方式：更新 `local-runbook.md` 和 `migration-guide.md`。
 

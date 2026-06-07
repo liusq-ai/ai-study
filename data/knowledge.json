@@ -1,0 +1,121 @@
+[
+  {
+    "id": "greeting-001",
+    "intent_type": "greeting",
+    "title": "问候语处理",
+    "content": "用户只是打招呼时，简短欢迎，并引导用户描述物流、退款、商品咨询或耳机故障等具体问题。",
+    "keywords": ["你好", "您好", "hi", "hello", "客服"]
+  },
+  {
+    "id": "product-001",
+    "intent_type": "product_info",
+    "title": "AirSound Pro 核心功能",
+    "content": "AirSound Pro 支持主动降噪、通透模式、蓝牙 5.3、双麦通话降噪和低延迟游戏模式，适合通勤、办公、游戏和对音质要求较高的用户。",
+    "keywords": ["AirSound Pro", "降噪", "通透", "蓝牙5.3", "游戏", "低延迟", "通话"]
+  },
+  {
+    "id": "product-002",
+    "intent_type": "product_info",
+    "title": "AirSound Pro 续航",
+    "content": "AirSound Pro 单次播放约 8 小时，配合充电盒总续航约 32 小时；开启主动降噪后单次续航约 6 小时。",
+    "keywords": ["AirSound Pro", "续航", "电量", "充电盒", "播放时间", "降噪续航"]
+  },
+  {
+    "id": "product-003",
+    "intent_type": "product_info",
+    "title": "AirSound Lite 适用人群",
+    "content": "AirSound Lite 主打轻便和高性价比，支持蓝牙连接、日常通话和音乐播放，不支持主动降噪，适合预算有限和日常通勤用户。",
+    "keywords": ["AirSound Lite", "轻便", "性价比", "预算", "主动降噪", "通勤"]
+  },
+  {
+    "id": "product-004",
+    "intent_type": "product_info",
+    "title": "AirSound Mini 佩戴特点",
+    "content": "AirSound Mini 体积更小、佩戴更轻，适合耳道较小或长时间佩戴的用户；单次续航约 5 小时，配合充电盒总续航约 20 小时。",
+    "keywords": ["AirSound Mini", "小耳朵", "轻", "佩戴", "续航", "长时间"]
+  },
+  {
+    "id": "product-005",
+    "intent_type": "product_info",
+    "title": "设备兼容性",
+    "content": "本店耳机支持常见 iPhone、Android 手机、平板和电脑蓝牙连接；只要设备支持蓝牙音频协议，一般都可以正常使用。",
+    "keywords": ["支持", "兼容", "苹果", "安卓", "iPhone", "Android", "电脑", "平板", "蓝牙"]
+  },
+  {
+    "id": "product-006",
+    "intent_type": "product_info",
+    "title": "型号选择建议",
+    "content": "重视降噪、游戏低延迟和综合体验，推荐 AirSound Pro；重视价格和日常够用，推荐 AirSound Lite；重视小巧轻便和长时间佩戴，推荐 AirSound Mini。",
+    "keywords": ["推荐", "型号", "区别", "哪个好", "怎么选", "Pro", "Lite", "Mini"]
+  },
+  {
+    "id": "product-007",
+    "intent_type": "product_info",
+    "title": "保修政策",
+    "content": "本店耳机自签收日起提供 12 个月质保。非人为质量问题可联系售后处理；进水、摔裂、私自拆修等人为损坏不在免费质保范围内。",
+    "keywords": ["保修", "质保", "售后", "人为损坏", "进水", "摔裂"]
+  },
+  {
+    "id": "troubleshooting-001",
+    "intent_type": "troubleshooting",
+    "title": "耳机单边无声音排查",
+    "content": "如果用户反馈耳机左边或右边没有声音，先确认耳机电量，再放回充电盒等待 10 秒后重新连接；仍无效时，引导用户在手机蓝牙设置中忽略设备后重新配对。",
+    "keywords": ["耳机", "没声音", "单边", "左耳", "右耳", "故障", "连接"]
+  },
+  {
+    "id": "troubleshooting-002",
+    "intent_type": "troubleshooting",
+    "title": "故障升级规则",
+    "content": "如果基础排查仍无法解决，提醒用户提供订单号，并转人工售后继续处理。",
+    "keywords": ["坏了", "不能用", "异常", "不好用", "订单号", "人工售后"]
+  },
+  {
+    "id": "refund-001",
+    "intent_type": "refund",
+    "title": "退款规则",
+    "content": "未发货订单可以直接申请退款；已发货订单需要收到商品后申请退货退款；退款到账时间通常为 1-3 个工作日。",
+    "keywords": ["退款", "退货", "到账", "退钱", "未发货", "已发货"]
+  },
+  {
+    "id": "refund-002",
+    "intent_type": "refund",
+    "title": "退款异常升级",
+    "content": "如果超过 3 个工作日仍未到账，需要用户提供订单号，由人工客服查询退款状态。",
+    "keywords": ["退款异常", "超过3天", "订单号", "人工客服"]
+  },
+  {
+    "id": "logistics-001",
+    "intent_type": "logistics",
+    "title": "物流规则",
+    "content": "正常订单通常会在付款后 24 小时内发货；发货后物流信息一般会在 12 小时内更新。",
+    "keywords": ["物流", "快递", "发货", "派送", "订单"]
+  },
+  {
+    "id": "logistics-002",
+    "intent_type": "logistics",
+    "title": "物流异常处理",
+    "content": "如果超过 48 小时仍未发货，或物流异常、派送失败、地址错误，需要用户提供订单号继续查询。",
+    "keywords": ["物流异常", "派送失败", "地址错误", "48小时", "订单号"]
+  },
+  {
+    "id": "complaint-001",
+    "intent_type": "complaint",
+    "title": "投诉处理",
+    "content": "先安抚用户情绪，表达理解和歉意，不与用户争辩，并告知会转人工客服继续处理。",
+    "keywords": ["投诉", "差评", "生气", "太差", "道歉", "人工"]
+  },
+  {
+    "id": "human-001",
+    "intent_type": "human",
+    "title": "转人工处理",
+    "content": "用户明确要求人工客服时，确认会协助转人工，并请用户补充订单号和具体问题。",
+    "keywords": ["人工", "真人", "转人工", "客服"]
+  },
+  {
+    "id": "other-001",
+    "intent_type": "other",
+    "title": "信息不足处理",
+    "content": "如果无法判断用户问题，礼貌请用户补充商品、订单或遇到的具体情况。",
+    "keywords": ["其他", "不清楚", "问题", "补充"]
+  }
+]

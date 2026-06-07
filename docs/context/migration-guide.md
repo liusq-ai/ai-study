@@ -67,6 +67,8 @@ ZHIPU_MAX_RETRIES=2
 - `.env.example` 只保留占位符。
 - `render.yaml` 可用于 Render Blueprint，但不包含真实 API Key。
 - `runtime.txt` 固定 Render Python 运行版本。
+- `data/knowledge.json` 必须随工程迁移。
+- `data/chroma/` 是运行时生成目录，不需要迁移。
 - `data/schema.sql` 和 `data/seed.sql` 必须随工程迁移。
 - `data/customer-service.db` 是运行时生成文件，不需要迁移。
 - `web/` 和 `web_app.py` 必须随工程迁移。
