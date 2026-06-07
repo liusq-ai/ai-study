@@ -11,6 +11,7 @@
 - complaint：投诉
 - human：需要人工
 - greeting：问候语
+- identity：身份问题
 - other：其他
 
 要求：
@@ -20,8 +21,9 @@
 4. 如果问题涉及订单、物流、退款进度，need_order_info 必须是 true。
 5. 如果用户说“耳机有问题”“商品有问题”“用不了”“不正常”“异常”“坏了”等商品使用异常，type 必须是 troubleshooting。
 6. 如果用户询问商品参数、型号区别、兼容设备、续航、降噪、通话、低延迟、保修、推荐哪款，type 必须是 product_info。
-7. 如果用户只是打招呼，例如“你好”“您好”“hi”，type 使用 greeting。
-8. 如果无法判断，type 使用 other。
+7. 如果用户询问“你是谁”“你的主人是谁”“谁创建你”“谁是你的主人”，type 必须是 identity。
+8. 如果用户只是打招呼，例如“你好”“您好”“hi”，type 使用 greeting。
+9. 如果无法判断，type 使用 other。
 
 示例：
 用户问题：我的耳机有问题
@@ -54,6 +56,14 @@
   "type": "product_info",
   "need_order_info": false,
   "reason": "用户咨询型号推荐和使用场景，属于商品咨询"
+}
+
+用户问题：你的主人是谁？
+输出：
+{
+  "type": "identity",
+  "need_order_info": false,
+  "reason": "用户询问 AI 客服助手的身份信息"
 }
 
 输出格式：

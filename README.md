@@ -177,6 +177,7 @@ python3 main.py "这款耳机支持苹果手机吗"
 python3 main.py "AirSound Pro 续航多久"
 python3 main.py "哪个型号适合打游戏"
 python3 main.py "耳机保修多久"
+python3 main.py "你的主人是谁"
 ```
 
 ## 服务器发布

@@ -89,6 +89,21 @@ def test_greeting() -> None:
     assert result["type"] == "greeting"
 
 
+def test_identity() -> None:
+    service = create_service(
+        {
+            "type": "identity",
+            "need_order_info": False,
+            "reason": "用户询问 AI 客服助手身份",
+        }
+    )
+
+    result = service.classify_intent("你的主人是谁？", "")
+
+    assert result["type"] == "identity"
+    assert result["need_order_info"] is False
+
+
 def create_knowledge(tmp_path: Path) -> KnowledgeService:
     return KnowledgeService(
         database_path=tmp_path / "customer-service.db",
@@ -133,3 +148,12 @@ def test_product_recommend(tmp_path: Path) -> None:
 
     assert "型号选择建议" in result
     assert "AirSound Pro" in result
+
+
+def test_identity_rag(tmp_path: Path) -> None:
+    service = create_knowledge(tmp_path)
+
+    result = service.load_knowledge("你的主人是谁？", "identity")
+
+    assert "AI 身份信息" in result
+    assert "主人是小白" in result

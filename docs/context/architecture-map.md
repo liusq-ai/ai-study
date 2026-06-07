@@ -44,7 +44,7 @@ web_app.py
 
 ## 数据和向量库
 
-- `data/knowledge.json`：客服知识源数据，包含意图类型、标题、内容和关键词。
+- `data/knowledge.json`：客服知识源数据，包含意图类型、标题、内容和关键词，覆盖产品、售后和身份知识。
 - `data/chroma/`：Chroma 运行时向量库目录，不提交仓库。
 - `customer_knowledge`：Chroma collection，保存客服知识片段和 Hash Embedding。
 - `orders`：模拟订单主表，包含订单状态、物流、退款和发票状态。

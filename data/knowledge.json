@@ -7,6 +7,13 @@
     "keywords": ["你好", "您好", "hi", "hello", "客服"]
   },
   {
+    "id": "identity-001",
+    "intent_type": "identity",
+    "title": "AI 身份信息",
+    "content": "这个 AI 客服助手的主人是小白。",
+    "keywords": ["主人", "你的主人", "谁创建你", "你是谁", "小白"]
+  },
+  {
     "id": "product-001",
     "intent_type": "product_info",
     "title": "AirSound Pro 核心功能",
